@@ -1,0 +1,41 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/dashboard/style.css")
+  link(rel="stylesheet", href="/stylesheets/dashboard/responsive.css")
+
+block content
+  include components/header.pug
+    
+  include components/store_header.pug
+
+  main
+    h1#dashboard-title Dashboard
+    #store-information
+      h2 Store Information 
+      .store-item
+        .title Game
+        .item-count 
+          .item-number #{games}
+          .item-name Games    
+        a.create-item(href="/game/create") Create Game
+      .store-item
+        .title Genre
+        .item-count 
+          .item-number #{genres.length}
+          .item-name Genres
+        a.create-item(href="/genre/create") Create Genre
+      .store-item
+        .title Developer
+        .item-count 
+          .item-number #{developers}
+          .item-name Developers
+        a.create-item(href="/developer/create") Create Developer
+      .store-item
+        .title Publisher
+        .item-count 
+          .item-number #{publishers}
+          .item-name Publishers
+        a.create-item(href="/publisher/create") Create Publisher
+    
+  script(src="/javascripts/hamburger_slider.js")    

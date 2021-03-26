@@ -1,0 +1,29 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/forum/style.css")
+  link(rel="stylesheet", href="/stylesheets/forum/responsive.css")
+
+block content
+  include components/header.pug
+    
+  main
+    #forum-post-container
+      #post-container
+        #author-icon 
+          img(src=`/user/${post.author._id}/profile-picture.jpg`, alt=`${post.author.username}'s profile picture`)   
+          //- img(src=`/user/${user._id}/profile-picture.jpg`)
+        #post-information 
+          #author-name= post.author.username
+          - const date = new Date(post.date);
+          - const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Oct', 'Nov', 'Dec'];
+          #post-date
+            p= `${date.getDate()}, ${months[date.getMonth()]} ${date.getFullYear()}` 
+        #post-title 
+          h1= post.title
+        #post-content
+          p= post.content
+        
+        
+
+  script(src="/javascripts/forum_index.js")    

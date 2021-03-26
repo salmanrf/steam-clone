@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Yantramanav', sans-serif;
+  font-weight: 400;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, hsl(207, 13%, 16%) 20%, hsl(204, 7%, 13%) 50%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 7px 0 rgba( 0, 0, 0, 0.75 );
+  background: hsl(222, 18%, 11%);
+  z-index: 10;
+}
+
+#main-header {
+  position: fixed;
+  width: 80%;
+  top: 0; 
+  left: -100%;
+  bottom: 0;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: left 50ms ease-in-out;
+  background: hsl(222, 18%, 11%);
+  z-index: 8;
+}
+
+.sliding-menu-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  transform: translateX(100%);
+  background: hsl(0, 0%, 0%, 50%);
+  transition: right 250ms ease-in-out;
+}
+
+.main-header-item {
+  padding: 5px 12px;
+  font-size: 22px;
+  font-weight: 400;
+  color: hsl(0, 0%, 74%);
+  text-decoration: none;
+  border-top: 1px solid hsl(227, 9%, 20%);
+  border-bottom: 1px solid hsl(0, 0%, 0%);
+}
+
+#user-action {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#user-action img {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border: 2px solid hsl(202, 87%, 68%, 50%);    
+}
+
+#user-action .main-header-item {
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+
+#store-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 176px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+#store-logo > a, #store-logo > a > img {
+  width: 100%;
+  height: 100%;
+}
+
+.hamburger-menu {
+  width: 35px;
+  height: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-menu > div {
+  height: 5px;
+  background: hsl(0, 0%, 100%);
+  border-radius: 5px;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#form-title {
+  width: 100%;
+  margin-top: 62px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background: hsla(222, 10%, 25%, 0.5);
+}
+
+#form-title > h1 {
+  font-size: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+}
+
+#game-form {
+  margin: 30px auto;
+  width: 80%;
+}
+
+#form-section-title {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  color: white;
+}
+
+.form-group, .radio-group, .checkbox-group {
+  margin: 30px 0;
+}
+
+.form-group a {
+  text-decoration: none;
+}
+
+label, .group-title {
+  display: block;
+  color:hsl(0, 0%, 59%);
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 0px hsla(0, 0%, 0%, 0.667);
+  font-size: 14px;
+  color: hsl(0, 0%, 59%);
+  line-height: 22px;
+  background: hsla(0, 0%, 0%, 0.25);
+}
+
+input[type="file"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+textarea {
+  max-width: 100%;
+  max-height: 150px;
+  resize: none;
+}
+
+.radio-group, .checkbox-group {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.group-choices {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.radio-group label, .checkbox-group label {
+  margin-left: 5px;
+}
+
+.checkbox-container, .radio-container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  width: 40%;
+  font-size: 12px;
+}
+
+#release-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.validation-result {
+  align-self: flex-start;
+}
+
+#release-date > .validation-result {
+  margin-left: 20px;
+}
+
+#release-date > label {
+  margin-right: 15px;
+}
+
+#cover-image {
+  position: relative;
+  align-self: flex-start;
+  width: 288px;
+  height: 162px;
+  margin: 15px 0 50px 0;
+  border: 1px solid hsla(0, 0%, 0%, 0.667);
+}
+
+#cover-image > label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 5px 10px;
+  transform: translate(-50%, -50%);
+  color: white;
+  border: 1px solid hsl(0, 0%, 100%, 50%);
+  opacity: 0;
+  background: hsl(222, 18%, 11%);
+  transition: opacity 150ms ease-in-out;
+  cursor: pointer;
+}
+
+#cover-image > .image-preview {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: hsl(0, 0%, 100%, 0%);
+}
+
+#cover-image:hover .preview-overlay, #cover-image:hover label {
+  opacity: 1;
+}
+
+#cover-image > .validation-result {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(200%);
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: hsl(0, 0%, 0%, 50%);
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+#screenshots-image {
+  position: relative;
+  align-self: flex-start;
+}
+
+#screenshots-image > label {
+  width: 140px;
+  margin: 20px 0 0 0;
+  padding: 5px 10px;
+  color: white;
+  text-align: center;
+  border: 1px solid hsl(0, 0%, 100%, 50%);
+  background: hsl(222, 18%, 11%);
+  cursor: pointer;
+}
+
+#screenshots-image > .validation-result {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(200%);
+}
+
+#screenshots-preview {
+  width: 80%;
+  height: 100px;
+  padding-bottom: 5px;
+}
+
+#screenshots-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.screenshot {
+  flex-shrink: 0;
+  width: 144px;
+  height: 81px;
+  margin-right: 5px;
+}
+
+.screenshot > img {
+  width: 100%;
+  height: 100%;
+}
+
+.validation-result {
+  margin: 15px 0;
+  color:hsl(0, 48%, 58%);
+  font-size: 14px;
+}
+
+#profile-picture {
+  align-self: flex-start;
+  min-height: 75px;
+  margin: 15px 0 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+#profile-picture .image-preview {
+  flex-shrink: 0;
+  position: static;
+  width: 75px;
+  height: 75px;
+  display: block;
+  border: 1px solid hsla(0, 0%, 0%, 0.667);
+}
+
+#profile-picture label {
+  position: static;
+  display: block;
+  width: 100px;
+  margin-left: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+#profilepic-validation {
+  position: static;
+  align-self: flex-start;
+  color:hsl(0, 48%, 58%);
+  font-size: 14px;
+}
+
+#game-price {
+  margin: 30px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#game-price > input {
+  width: 50%;
+  margin-left: 10px;
+}
+
+#game-price > .validation-result {
+  margin-left: 10px;
+}
+
+#submit {
+  width: 100%;
+  display: flex;
+  margin-top: 60px;
+  flex-direction: row-reverse;
+}
+
+.create-item, .form-button-primary {
+  padding: 5px 20px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px hsla(0, 0%, 0%, 0.3);
+  border: none;
+  border-radius: 2px;
+  background: linear-gradient( to right, hsl(201, 100%, 40%) 5%, hsl(225, 76%, 43%) 80%);
+  cursor: pointer;
+}
+
+.form-button-primary:hover {
+  background: linear-gradient( to right, hsl(201, 100%, 45%) 5%, hsl(225, 76%, 50%) 80%);
+}
+
+.form-button-secondary {
+  margin-left: 15px;
+  padding: 5px 20px;
+  border-radius: 2px;
+  display: block;
+  color: white;
+  font-size: 18px;
+  border: 1px solid hsla(0, 0%, 100%, 0.4);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.form-button-secondary:hover {
+  border: 1px solid white;
+}

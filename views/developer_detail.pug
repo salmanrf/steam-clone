@@ -1,0 +1,85 @@
+extends layout  
+
+block content
+  include components/header.pug
+
+  main
+    include components/store_header.pug
+
+    include components/sidebar.pug
+    
+    section#main-content
+      #featured
+        .item-header
+          .item-title= title 
+          if user && user.level 
+            if user.level >= 3
+              .item-update-delete
+                .update 
+                  a(href=`/developer/${developer._id}/update`) Update
+                .delete 
+                  a(href=`/developer/${developer._id}/delete`) Delete
+        #featured-carousel  
+          #featured-displayed
+            each game, index in games
+              if index < 10
+                a.featured-game(href=`/game/${game._id}/`)        
+                  .featured-main-display
+                    img(alt=`${game.title} cover`, src=`/images/games/${game._id}/main.jpg`)
+                    .preview-overlay 
+                      img
+                  .featured-game-detail
+                    .ftr-game-title #{game.title} 
+                    .ftr-game-screenshots
+                      each index in [1, 2, 3, 4]
+                        .ftr-game-ss
+                          img(src=`/images/games/${game._id}/ss-${index}.jpg`, alt=`${game.title} screenshot ${index}`)
+                    .ftr-game-genres
+                      each genre, index in game.genres
+                        if index < 3
+                          span #{genre.name}
+                    .ftr-game-price Rp #{game.price}
+          #featured-control.carousel-control
+            #prev-ftr.prev
+              .slide-icon
+                img(src="/images/style/arrow.png", alt="previous-game") 
+            #next-ftr.next
+              .slide-icon
+                img(src="/images/style/arrow.png", alt="next-game")
+
+    section#tab-content  
+      #tab-navigation
+        .tab-nav-item.tab-nav-active
+          span New And Trending
+        .tab-nav-item
+          span Top Sellers
+        .tab-nav-item
+          span Upcoming
+      #tab-container-fill
+      .tab-container
+        each game in games
+          a.tab-game(href=`/game/${game._id}/`)
+            .tab-game-fill
+            .tab-preview
+              img(src=`/images/games/${game.id}/main.jpg`, alt="game-preview-cover")
+            .tab-info
+              .game-title 
+                span #{game.title}
+              .game-price 
+                span Rp #{game.price}
+              .game-genres 
+                each genre, index in game.genres
+                  if index < 4
+                    span #{genre.name}
+          .game-aside
+            .game-aside-title #{game.title}
+            .game-aside-genres
+              each genre, index in game.genres
+                if index < 3
+                  span #{genre.name}
+            .game-aside-screenshots
+              each index in [1, 2, 3, 4]
+                .game-aside-ss
+                  img(src=`/images/games/${game._id}/ss-${index}.jpg`, alt=`${game.title} screenshot ${index}`)
+          
+  script(src="/javascripts/item_detail.js")    

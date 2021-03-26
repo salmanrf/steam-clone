@@ -1,0 +1,17 @@
+nav#store-header
+  #store-navbar
+    .store-nav-item 
+      .slidedown-title
+        span Browse
+        span.arrow-down-icon
+      .slidedown-menu 
+        .slidedown-section Game Genres
+        each genre, index in genres 
+          if index < 10
+            a.slidedown-menu-item(href=`/genre/${genre.name}/`) #{genre.name}
+    .store-nav-item Points Shop 
+    .store-nav-item News
+    .store-nav-item#searchbar
+      form
+        input(type='text', id="search", name='keyword', placeholder='search the store')
+        button(type="submit")

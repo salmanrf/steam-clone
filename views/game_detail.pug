@@ -1,0 +1,73 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/item_detail/style.css")
+  link(rel="stylesheet", href="/stylesheets/item_detail/responsive.css")
+
+block content
+  include components/header.pug
+    
+  include components/store_header.pug
+
+  main
+    #breadcrumbs
+      a(href="/") All Games
+      span > 
+      a(href=`/genre/${game.genres[0]._id}/`) #{game.genres[0].name}
+      span > 
+      a(href=`/game/${game._id}/`) #{game.title}
+
+    .item-header
+      .item-title #{game.title}
+      if user && user.level 
+        if user.level >= 3
+          .item-update-delete
+            .update 
+              a(href=`/game/${game._id}/update`) Update
+            .delete 
+              a(href=`/game/${game._id}/delete`) Delete
+    #game-main-info 
+      #game-screenshots
+        #game-ss-display 
+          img(src=`/images/games/${game._id}/ss-1.jpg`)
+        #game-ss-list 
+          #game-ss-list-slider
+            each ss in screenshots
+              .game-ss
+                img(src=`/images/games/${game._id}/${ss}`)
+
+      #game-detail-container 
+        #game-cover 
+          img(src=`/images/games/${game._id}/main.jpg`)
+        #game-summary           
+          p= game.summary        
+        if game.developer
+          .game-info
+            .game-info-title DEVELOPER:
+            a.game-info-value(href=game.developer.url) #{game.developer.name}
+        if game.publisher
+          .game-info
+            .game-info-title PUBLISHER:
+            a.game-info-value(href=game.publisher.url) #{game.publisher.name}                    
+        .game-info
+          .game-info-title RELEASE DATE:
+          - const release = new Date(game.release_date);
+          - const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Oct', 'Nov', 'Dec'];
+          span.game-info-value= `${release.getDate()}, ${months[release.getMonth()]} ${release.getFullYear()}`               
+        #game-genres
+          each genre, index in game.genres
+            if index < 4
+              a.game-genre(href=genre.url) #{genre.name}
+    span#add-to-wishlist Add to your wishlist        
+
+    #buy-game 
+      .caption Buy #{game.title}                      
+      #add-to-cart 
+        #item-price Rp #{game.price}   
+        #cart-button Add to Cart
+
+    #game-about        
+      .caption ABOUT THIS GAME
+      p= game.summary
+        
+  script(src="/javascripts/game_detail.js")    

@@ -1,0 +1,36 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/form/style.css")
+  link(rel="stylesheet", href="/stylesheets/form/responsive.css")
+
+block content
+  include components/header.pug
+
+  main 
+    #form-title
+      h1 #{title}
+    form#game-form(method="POST", action="")
+      .form-group
+        label(for="username") USERNAME
+        input(type="text", name="username", value=user && user.username)
+        .validation-result 
+          p= (errors && errors.username) && errors.username.msg
+      .form-group
+        label(for="password") PASSWORD
+        input(type="password", name="password", value=user && user.password)
+        .validation-result 
+          p= (errors && errors.password) && errors.password.msg
+      
+      input(type="hidden", name="id", value=user && user._id)
+
+      .form-group#submit
+        a(href="/signup")
+          button.form-button-secondary(type="button") Signup
+        button.form-button-primary(type="submit") Login
+        
+
+  script(src="/javascripts/hamburger_slider.js") 
+
+
+    

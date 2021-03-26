@@ -1,0 +1,556 @@
+@media screen and (min-width: 1366px) {
+  header {
+    position: static;
+    width: 100%;
+    height: 62px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 7px 0 rgba( 0, 0, 0, 0.75 );
+    background: hsl(222, 18%, 11%);
+    z-index: 10;
+  }
+
+  #store-logo {
+    position: static;
+    width: 176px;
+    height: 44px;
+    transform: translate(0, 0);
+  }
+
+  #store-logo > a, #store-logo > a > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  #main-header {
+    position: static;
+    width: auto;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .main-header-item {
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    color: hsl(30, 3%, 71%);
+  }
+
+  .main-header-item:hover {
+    color: hsl(0, 0%, 100%);
+  }
+
+  #login, #user-action {
+    position: absolute;
+    right: 10px;
+  }
+
+  #user-action .main-header-item {
+    padding: 5px;
+    padding-right: 0;
+  }
+
+  .hamburger-menu {
+    width: 35px;
+    height: 21px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  main {
+    width: 100%;
+    margin: 30px auto 0 auto;
+    display: grid;  
+    justify-items: center;
+    grid-template-rows: repeat(4, auto);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 20px;
+  }
+
+  #store-header {
+    grid-column: 3 / 13;
+    grid-row: 1 / 2;
+    width: 950px;
+    margin: 0;
+  }
+  
+  #store-navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: hsl(204, 47%, 40%);
+  }
+
+  .store-nav-item {
+    flex-grow: 1;
+    width: 0;
+    height: 36px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 13px;
+    text-align: center;
+    border-right: 1px solid hsla(207, 22%, 8%, 0.302);
+    cursor: pointer;
+  }
+  
+  .store-nav-item:hover {
+    color: hsl(0, 0%, 0%, 80%);
+    background: linear-gradient( to bottom, #e3eaef 5%, #c7d5e0 95%);
+  }
+
+  .slidedown-menu {
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    /* height: 200px; */
+    /* padding: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateY(100%);
+    overflow: hidden;
+    background: linear-gradient( to bottom, #e3eaef 5%, #c7d5e0 95%);
+    transition: height 250ms ease-in-out;
+    z-index: 15;
+  }
+  
+  .slidedown-menu-item {
+    width: 100%;
+    padding: 10px;
+    /* color: hsl(0, 0%, 0%); */
+    text-align: left;
+    text-decoration: none;
+  }
+  
+  .slidedown-menu-item:hover {
+    color: hsl(0, 0%, 100%);
+    background: hsl(214, 30%, 18%);
+  }
+  
+  .slidedown-section {
+    align-self: center;
+    font-size: 12px;
+    color:#4f94bc;
+  }
+
+  #searchbar {
+    flex-grow: 4;
+    display: flex;
+    align-items: flex-end;
+    background: hsl(204, 47%, 40%);
+  }
+  
+  #searchbar > form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #searchbar > form > input[type='text'] {
+    width: 100%;
+    height: 25px;
+    padding: 10px 6px;
+    border: none;
+    border-radius: 5px;
+    background: hsl(204, 45%, 35%);
+    color: hsl(206, 28%, 83%);
+  }
+  
+  #searchbar:hover > form > input[type='text'] {
+    border: 0.5px solid hsl(0, 0%, 100%, 90%);
+  }
+  
+  #searchbar > form > button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: url("/images/style/search_icon_btn.png");
+    border: none;
+  }
+  
+  .sidebar {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    justify-self: start;
+    width: 100%;
+    margin: 30px 30px 0 82px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sidebar-section {
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  
+  .sidebar-section-title {
+    line-height: 16px;
+    color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+  }
+  
+  .sidebar-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-item {
+    margin-bottom: 5px;
+    color: hsl(202, 87%, 68%);  
+  }
+  
+  #main-content {
+    max-width: 1000px;
+    /* padding-left: 32px; */
+    grid-column: 3 / 13;
+    grid-row: 2 / 3;
+    margin: 0;
+  }
+
+  #featured {
+    width: 950px;
+    margin: 0;
+    margin-top: 30px;
+  }
+
+  #featured-displayed {
+    height: 350px;
+  }
+
+  .featured-game {
+    width: 950px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+  }
+
+  .featured-main-display {
+    width: 615px;
+    height: 100%;
+  }
+
+  .featured-game-detail {
+    width: 335px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0 12px 0;
+    /* background: hsl(208, 37%, 10%); */
+    background-image: url( '/images/style/background_maincap_2.jpg' );
+  }
+
+  .ftr-game-title {
+    width: 315px;
+    font-size: 20px;
+    font-weight: 400;
+    color: hsl(0, 0%, 100%);
+  }
+
+  .ftr-game-screenshots {
+    width: 315px;
+    height: 164px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: row;
+    gap: 14px;
+  }
+
+  .ftr-game-ss {
+    width: 150px;
+    height: 75px;
+    opacity: 0.5;
+    transition: opacity 250ms ease-in-out;
+  }
+
+  .ftr-game-ss > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ftr-game-ss:hover {
+    opacity: 1;
+  }
+
+  .ftr-game-genres {
+    width: 315px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ftr-game-genres > span {
+    margin-right: 5px;
+    padding: 2px 4px;
+    font-size: 12px;
+    color: hsl(0, 0%, 100%);
+    border-radius: 2px;
+    background: hsl(207, 19%, 37%);
+  }
+
+  .ftr-game-price {
+    width: 315px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: hsl(201, 78%, 82%, 80%);
+  }
+
+  #specials {
+    width: 950px;
+    margin: 0;
+    margin-top: 30px;
+  }
+
+  #specials-displayed {
+    column-gap: 25px;
+    row-gap: 20px;
+  }
+  
+  #specials .carousel-control {
+    width: 950px;
+  }
+
+  #tab-content {
+    width: 100%;
+    grid-column: 1 / 13;
+    grid-row: 3 / 4;
+    margin: 30px auto 0 auto;
+    display: grid;  
+    justify-items: center;
+    grid-template-rows: 32px auto;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 20px;
+  }
+
+  #tab-navigation {
+    width: 950px;
+    grid-column: 3 / 13;
+    grid-row: 1 / 2;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: hsl(213, 35%, 16%);
+  }
+
+  .tab-container {
+    position: relative;
+    width: 950px;
+    grid-column: 3 / 13;
+    grid-row: 2 / 3;
+    min-height: 900px;
+    margin-top: 0;
+    padding: 10px 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 3;
+  }
+  
+  #tab-container-fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-column: 1 / 13;
+    grid-row: 2 / 3;
+    background: hsl(207, 38%, 27%);
+  }
+
+  .tab-nav-item {
+    margin-right: 5px;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: hsl(202, 45%, 52%);
+    border-radius: 3px 3px 0 0;
+    cursor: pointer;
+  }
+  
+  .tab-nav-active {
+    background: hsl(207, 38%, 27%);
+    color: hsl(0, 0%, 100%, 90%);
+  }
+  
+  .tab-nav-item > span {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .tab-game {
+    width: 65%;
+    height: 70px;
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
+    background: hsl(207, 37%, 20%);
+    cursor: pointer;
+  }
+  
+  .tab-game:hover {
+    background: linear-gradient( to bottom, #e3eaef 5%, #c7d5e0 95%);
+  }
+
+  .tab-game-fill {
+    position: absolute;
+    width: 103.5%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .tab-preview {
+    width: 22%;
+    height: 100%;
+  }
+  
+  .tab-preview > img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .tab-info {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 5px 10px;
+    font-weight: 400;
+    color: hsl(0, 0%, 100%, 90%);
+  }
+  
+  .tab-game:hover .tab-info {
+    color: hsl(0, 0%, 0%, 90%);
+  }
+  
+  .game-title, .game-price, .game-genres {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .game-title {
+    width: 100%;
+    font-size: 14px;
+  }
+  
+  .game-price {
+    align-self: flex-end;
+    font-size: 12px;
+  }
+  
+  .game-genres {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  .game-genres > span {
+    display: block;
+    margin-right: 5px;
+  }
+
+  .game-aside {
+    position: absolute;
+    right: 0;
+    width: 320px;
+    margin: 3px 0;
+    padding: 25px;
+    display: block;
+    background: linear-gradient( to bottom, #e3eaef 5%, #c7d5e0 95%);
+    opacity: 0;
+  }
+
+  .game-aside-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: hsl(0, 0%, 0%, 80%);
+  }
+
+  .game-aside-genres {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .game-aside-genres > span {
+    display: block;
+    margin-right: 5px;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: 400;
+    color: hsl(0, 0%, 100%);
+    border-radius: 2px;
+    background: hsl(207, 19%, 37%);
+  }
+
+  .game-aside-screenshots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .game-aside-ss {
+    width: 270px;
+    height: 165px;
+    margin-top: 10px;
+  }
+
+  .game-aside-ss > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+@media screen and (min-width: 1920px) {
+  #store-header {
+    grid-column: 2 / 13;
+  }
+
+  #main-content {
+    grid-column: 2 / 13;
+  }
+
+  .sidebar {
+    grid-column: 2 / 3;
+  }
+
+  #tab-navigation {
+    grid-column: 2 / 13;
+  }
+
+  .tab-container {
+    grid-column: 2 / 13;
+  }
+}

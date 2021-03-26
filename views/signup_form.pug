@@ -1,0 +1,45 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/form/style.css")
+  link(rel="stylesheet", href="/stylesheets/form/responsive.css")
+
+block content
+  include components/header.pug
+
+  main 
+    #form-title
+      h1 #{title}
+    form#game-form(method="POST", action="", enctype="multipart/form-data")
+      .form-group
+        label(for="username") USERNAME
+        input(type="text", name="username", value=user && user.username)
+        .validation-result 
+          p= (errors && errors.username) && errors.username.msg
+      .form-group
+        label(for="password") PASSWORD
+        input(type="password", name="password", value=user && user.password)
+        .validation-result 
+          p= (errors && errors.password) && errors.password.msg
+      
+      input(type="hidden", name="id", value=user && user._id)
+
+      .form-group
+          .group-title PROFILE PICTURE
+          #profile-picture
+            img.image-preview(src=(profilepic ? profilepic : ""), alt=" ")
+            label(for="profilepic") Choose Image 
+            input(type="file", id="profilepic", name="profilepic", accept="image/png, image/jpeg, image/jpg")
+          #profilepic-validation 
+            p= ""        
+
+      .form-group#submit
+        a(href="/login")
+          button.form-button-secondary(type="button") Login
+        button.form-button-primary(type="submit") Signup              
+        
+
+  script(src="/javascripts/signup_formhandling.js") 
+
+
+    

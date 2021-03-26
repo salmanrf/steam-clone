@@ -1,0 +1,22 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/item_delete/style.css")
+  link(rel="stylesheet", href="/stylesheets/item_delete/responsive.css")
+
+block content
+  include components/header.pug
+
+  main 
+    h1#prompt Delete "#{game.title}" ? 
+    form#game-delete(method="POST", action="") 
+      input(type="hidden", name="id", value=game._id)
+      button(type="submit") Yes 
+      button 
+        a(href=game.url) No
+
+  script(src="/javascripts/hamburger_slider.js")         
+
+
+
+    

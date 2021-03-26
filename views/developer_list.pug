@@ -1,0 +1,19 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/genre_list/style.css")
+  link(rel="stylesheet", href="/stylesheets/genre_list/responsive.css")
+
+block content
+  include components/header.pug
+    
+  include components/store_header.pug
+
+  main
+    h1#page-title= title
+    .item-list 
+      each dev in developers
+        a.item(href=dev.url)
+          span= dev.name
+                    
+  script(src="/javascripts/hamburger_slider.js")    

@@ -1,0 +1,20 @@
+header
+  div.hamburger-menu  
+    div 
+    div
+    div
+  #store-logo(href="/") 
+    a
+      img(src="/images/style/logo_steam.png")
+  nav#main-header   
+    .sliding-menu-overlay
+    if user 
+      #user-action 
+        img(src=`/user/${user._id}/profile-picture.jpg`)
+        .main-header-item= user.username
+        span.arrow-down-icon
+    else 
+      a#login.main-header-item(href="/login") Login
+    a.main-header-item(href="/") Store 
+    a.main-header-item(href="/forum") Forum 
+    a.main-header-item(href="/") Support

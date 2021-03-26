@@ -1,0 +1,46 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/forum/style.css")
+  link(rel="stylesheet", href="/stylesheets/forum/responsive.css")
+
+block content
+  include components/header.pug
+    
+  main
+    #title Forums 
+    #forum-post-count Showing 1200 posts              
+    #forum-container 
+      #forum-post-list
+        if user
+          #create-post-container
+            #create-post-header START A NEW DISCUSSION
+            form#create-post-form(method="POST", action="") 
+              #create-post-author
+                img(src=`/user/${user._id}/profile-picture.jpg`)
+              .form-group
+                input(type="text", , id="post_title", name="title", placeholder="enter a title", value=forum&&forum.title)
+                textarea(type="text", id="post_content", name="content", rows="3", cols="40", placeholder="say something")= content && content.title
+                p.create-post-validation= " "
+                button#submit-post(type="submit") Post Discussion
+
+        each post in forums
+          a.forum-post(href=`/forum/${post._id}`)
+            .post-icon 
+              img(src="/images/style/forum-topic-icon.png", alt="topic-icon")            
+            .post-title-author 
+              .title= post.title 
+              if user
+                .author= post.author.username
+            - const date = new Date(post.date);
+            - const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Oct', 'Nov', 'Dec'];
+            .post-date= `${date.getDate()}, ${months[date.getMonth()]} ${date.getFullYear()}`
+            .post-comment
+              .post-comment-icon
+                img(src="/images/style/comment-icon.png", alt="comment-icon")
+              //- .post-comment-count 25              
+      if user
+        #new-post-container 
+          span#new-post-btn Start a New Discussion            
+
+  script(src="/javascripts/forum_index.js")    

@@ -1,0 +1,101 @@
+extends layout
+
+block head  
+  link(rel="stylesheet", href="/stylesheets/form/style.css")
+  link(rel="stylesheet", href="/stylesheets/form/responsive.css")
+
+block content
+  include components/header.pug
+
+  main 
+    #form-title
+      h1 #{title}
+      //- , enctype="multipart/form-data"
+    form#game-form(method="POST", action="", enctype="multipart/form-data")
+      #form-section-title General      
+      .form-group
+        label(for="title") GAME TITLE
+        input(type="text" name="title", value=game && game.title)
+        .validation-result 
+          p= (errors && errors.title) ? errors.title.msg : ""
+      .form-group
+        label(for="summary") GAME SUMMARY
+        textarea(name="summary", cols="100", rows="10")= game && game.summary
+        .validation-result 
+          p= (errors && errors.summary) ? errors.summary.msg : ""
+      .form-group#release-date
+        label(for="date") RELEASE DATE
+        input(type="date", name="release", value=game && game.release_date_formatted)
+        .validation-result 
+          p= (errors && errors.release) ? errors.release.msg : ""
+      .form-group#game-price
+        label(for="price") PRICE
+        input(type="text", id="price", name="price", value=game ? game.price : 0)
+        .validation-result
+          p= (errors && errors.price) ? errors.price.msg : ""
+      
+      .checkbox-group 
+        .group-title GENRES
+        .group-choices
+          - const genresSorted = genres.sort((a, b) => a.name < b.name ? -1 : 0)
+          each genre in genresSorted
+            .checkbox-container
+              input(type="checkbox", name="genres", id=genre.name, value=genre._id, checked=genre.checked)
+              label(for=genre.name) #{genre.name}
+        .validation-result 
+          p= (errors && errors.genres) ? errors.genres.msg : ""
+      .radio-group 
+        .group-title DEVELOPER
+        .group-choices
+          - const devSorted = developers.sort((a, b) => a.name < b.name ? -1 : 0)
+          each dev in devSorted
+            .radio-container
+              input(type="radio", name="developer", id=`dev-${dev.name}`, value=dev._id, checked=dev.checked)
+              label(for=`dev-${dev.name}`) #{dev.name}
+        .validation-result 
+          p= (errors && errors.developer) ? errors.developer.msg : ""
+      .radio-group 
+        .group-title PUBLISHER
+        .group-choices
+          - const publsSorted = publishers.sort((a, b) => a.name < b.name ? -1 : 0)
+          each publ in publsSorted  
+            .radio-container
+              input(type="radio", name="publisher", id=`publisher-${publ.name}`, value=publ._id, checked=publ.checked)
+              label(for=`publisher-${publ.name}`) #{publ.name}
+        .validation-result 
+          p= (errors && errors.publisher) ? errors.publisher.msg : ""
+
+      #form-section-title Game Cover And Screenshots
+      .form-group
+          .group-title GAME COVER IMAGE
+          #cover-image
+            img.image-preview(src=(gameFiles && gameFiles.cover), alt="cover-image")
+            .preview-overlay
+            input(type="file", id="cover", name="cover", accept="image/png, image/jpeg, image/jpg")
+            label(for="cover") Choose Image 
+            .validation-result 
+              p= ""    
+      .form-group
+          .group-title GAME SCREENSHOTS
+          .group-title max: 10
+          #screenshots-image
+            label(for="screenshots") Choose Images 
+            input(type="file", id="screenshots", name="screenshots", accept="image/png, image/jpeg, image/jpg", multiple)
+            #screenshots-preview
+              #screenshots-container
+                if gameFiles && gameFiles.screenshots
+                  each ss in gameFiles.screenshots 
+                    .screenshot 
+                      img(src=ss, alt="game-screenshot")
+            .validation-result 
+              p= ""        
+      
+      input(type="hidden", name="id", value=game && game._id)
+
+      .form-group#submit
+        button.create-item(type="submit") Submit
+
+  script(src="/javascripts/formhandling.js") 
+
+
+    

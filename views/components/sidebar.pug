@@ -1,0 +1,18 @@
+aside.sidebar 
+  .sidebar-section  
+    .sidebar-section-title BROWSE CATEGORIES
+    .sidebar-container
+      .sidebar-item 
+        a(href="/developer") Developers
+      .sidebar-item 
+        a(href="/publisher") Publishers
+  .sidebar-section  
+    .sidebar-section-title BROWSE BY GENRE
+    .sidebar-container
+      - const genresSorted = genres.sort((a, b) => a.name < b.name ? -1 : 0);
+      each genre, index in genresSorted
+        if index < 10
+          .sidebar-item 
+            a(href=genre.url) #{genre.name}  
+      .sidebar-item 
+        a#more-genres(href="/genre") MORE GENRES

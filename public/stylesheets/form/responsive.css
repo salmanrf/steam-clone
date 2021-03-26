@@ -1,0 +1,190 @@
+@media (min-width: 1366px) {
+  @import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@400;500;700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 400;
+  }
+  
+  html, body {
+    width: 100%;
+  }
+  
+  body {
+    background: linear-gradient(to bottom, hsl(207, 13%, 16%) 20%, hsl(204, 7%, 13%) 50%);
+  }
+  
+  header {
+    position: static;
+    width: 100%;
+    height: 62px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 7px 0 rgba( 0, 0, 0, 0.75 );
+    background: hsl(222, 18%, 11%);
+    z-index: 10;
+  }
+
+  #store-logo {
+    position: static;
+    width: 176px;
+    height: 44px;
+    transform: translate(0, 0);
+  }
+
+  #store-logo > a, #store-logo > a > img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #main-header {
+    position: static;
+    width: auto;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .main-header-item {
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    color: hsl(30, 3%, 71%);
+  }
+
+  .main-header-item:hover {
+    color: hsl(0, 0%, 100%);
+  }
+
+  #login, #user-action {
+    position: absolute;
+    right: 10px;
+  }
+
+  #user-action .main-header-item {
+    padding: 5px;
+    padding-right: 0;
+  }
+
+  .hamburger-menu {
+    width: 35px;
+    height: 21px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  main {
+    width: 940px;
+    margin: 0 auto;
+  }
+  
+  #form-title {
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background: hsla(222, 10%, 25%, 0.5);
+  }
+  
+  #form-title > h1 {
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+  }
+  
+  #game-form {
+    margin: 30px auto;
+    width: 80%;
+  }
+
+  #form-section-title {
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  .form-group, .radio-group, .checkbox-group {
+    margin-top: 20px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  label, .group-title {
+    align-self: flex-start;
+    display: block;
+    color:hsl(0, 0%, 59%);
+  }
+  
+  input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 0px hsla(0, 0%, 0%, 0.667);
+    font-size: 14px;
+    color: hsl(0, 0%, 59%);
+    line-height: 22px;
+    background: hsla(0, 0%, 0%, 0.25);
+  }
+  
+  textarea {
+    align-self: flex-start;
+    max-width: 80%;
+    max-height: 150px;
+    resize: none;
+  }
+  
+  .radio-group, .checkbox-group {
+    max-width: 80%;
+    margin-top: 20px;
+  }
+  
+  .group-choices {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    overflow: auto;
+    /* overflow-x: hidden; */
+  }
+  
+  .radio-group label, .checkbox-group label {
+    margin-left: 5px;
+  }
+  
+  .checkbox-container, .radio-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    width: 25%;
+    font-size: 12px;
+  }
+
+  #profile-picture label {
+    align-self: center;
+  }
+
+  #submit {
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
