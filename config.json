@@ -1,6 +1,0 @@
-{
-  "GAME_DB": "mongodb+srv://eleum:eleumloyce@cluster0.kdwx4.mongodb.net/gamestore_db?retryWrites=true&w=majority",
-  "USER_DB": "mongodb+srv://eleum:eleumloyce@cluster0.kdwx4.mongodb.net/user_db?retryWrites=true&w=majority",
-  "FORUM_DB": "mongodb+srv://eleum:eleumloyce@cluster0.kdwx4.mongodb.net/forum_db?retryWrites=true&w=majority",
-  "secrets": "eleumloyce"
-}
