@@ -15,6 +15,8 @@ header
         span.arrow-down-icon
     else 
       a#login.main-header-item(href="/login") Login
+    if user && user.level === 3
+      a.main-header-item(href="/dashboard") Dashboard
     a.main-header-item(href="/") Store 
     a.main-header-item(href="/forum") Forum 
     a.main-header-item(href="/") Support

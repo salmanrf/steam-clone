@@ -21,9 +21,19 @@ block content
         input(type="password", name="password", value=user && user.password)
         .validation-result 
           p= (errors && errors.password) && errors.password.msg
-      
-      input(type="hidden", name="id", value=user && user._id)
 
+      .form-group.demo-users
+        .user-group 
+          .group-name Demo User 
+            .user-item
+              span Username: eleumloyce 
+              span Password: eleumloyce
+        .user-group
+          .group-name Admin 
+            .user-item 
+              span Username: salmanrf 
+              span Password: ocelot123
+      
       .form-group#submit
         a(href="/signup")
           button.form-button-secondary(type="button") Signup

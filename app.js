@@ -12,7 +12,6 @@ nconf.file(path.join(__dirname, "config.json"));
 const app = express();
 
 const storeRouter = require("./routes/router");
-const apiRouter = require("./routes/apiRouter");
 
 // Get authentication setup
 const {passport} = require("./controllers/user_controller");
@@ -41,7 +40,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression());
 
 app.use('/', storeRouter);
-app.use("/api", apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

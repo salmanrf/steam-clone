@@ -22,8 +22,6 @@ block content
         .validation-result 
           p= (errors && errors.password) && errors.password.msg
       
-      input(type="hidden", name="id", value=user && user._id)
-
       .form-group
           .group-title PROFILE PICTURE
           #profile-picture

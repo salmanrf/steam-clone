@@ -9,19 +9,6 @@ const Genre = require('../models/genre');
 const Developer = require('../models/developer');
 const Publisher = require('../models/publisher');
 
-exports.game_list_json = exports.game_list = (req, res, next) => {
-  async.parallel({
-    games: (callback) => Game.find({title: {$regex: new RegExp(req.query.keyword, "i")}}).limit(5).exec(callback),
-  }, (err, {games}) => {
-    console.log(req.originalUrl);
-    if(err) {
-      res.status(500).json();
-    }
-
-    res.json(games);
-  });
-}
-
 exports.game_list = (req, res, next) => {
   async.parallel({
     games: (callback) => Game.find({}).populate('genres').exec(callback),

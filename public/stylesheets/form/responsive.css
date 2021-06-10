@@ -58,7 +58,7 @@
     text-transform: uppercase;
     text-decoration: none;
     border: none;
-    color: hsl(30, 3%, 71%);
+    color: hsl(30, 3%, 95%);
   }
 
   .main-header-item:hover {
@@ -124,11 +124,15 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .demo-users {
+    align-items: start;
+  }
   
   label, .group-title {
     align-self: flex-start;
     display: block;
-    color:hsl(0, 0%, 59%);
+    color:hsl(0, 0%, 90%);
   }
   
   input[type="text"], input[type="password"], textarea {
@@ -138,7 +142,7 @@
     border-radius: 2px;
     box-shadow: inset 1px 1px 0px hsla(0, 0%, 0%, 0.667);
     font-size: 14px;
-    color: hsl(0, 0%, 59%);
+    color: hsl(0, 0%, 90%);
     line-height: 22px;
     background: hsla(0, 0%, 0%, 0.25);
   }
